@@ -61,4 +61,8 @@ menu "Audio"
   source "$BR2_EXTERNAL_BATOCERA_PATH/package/batocera/audio/alsa-ucm-conf/Config.in"
 endmenu
 
+menu "ES"
+  source "$BR2_EXTERNAL_BATOCERA_PATH/package/batocera/emulationstation/batocera-emulationstation/Config.in"
+endmenu
+
 endmenu
