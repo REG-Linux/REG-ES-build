@@ -1,0 +1,32 @@
+include batocera-board.common
+
+# Target definition
+BR2_arm=y
+BR2_cortex_a9=y
+BR2_ARM_EABIHF=y
+BR2_ARM_ENABLE_NEON=y
+BR2_ARM_ENABLE_VFP=y
+BR2_ARM_FPU_NEON=y
+BR2_PACKAGE_BATOCERA_TARGET_S812=y
+BR2_TARGET_OPTIMIZATION="-pipe -fsigned-char"
+#BR2_TARGET_GENERIC_GETTY_PORT="tty1"
+BR2_TARGET_GENERIC_GETTY_BAUDRATE_115200=y
+BR2_GLOBAL_PATCH_DIR="$(BR2_EXTERNAL_BATOCERA_PATH)/board/batocera/patches $(BR2_EXTERNAL_BATOCERA_PATH)/board/batocera/amlogic/s812/patches"
+BR2_ROOTFS_OVERLAY="$(BR2_EXTERNAL_BATOCERA_PATH)/board/batocera/fsoverlay $(BR2_EXTERNAL_BATOCERA_PATH)/board/batocera/amlogic/s812/fsoverlay"
+BR2_TARGET_ROOTFS_SQUASHFS4_ZSTD=y
+
+# Linux headers same as kernel, a 6.8 series
+BR2_KERNEL_HEADERS_AS_KERNEL=y
+BR2_PACKAGE_HOST_LINUX_HEADERS_CUSTOM_6_8=y
+
+# Kernel
+BR2_LINUX_KERNEL=n
+BR2_LINUX_KERNEL_CUSTOM_GIT=y
+BR2_LINUX_KERNEL_CUSTOM_REPO_URL="https://github.com/xdarklight/linux"
+BR2_LINUX_KERNEL_CUSTOM_REPO_VERSION="meson-mx-integration-6.8-20240219"
+
+# GPU
+BR2_PACKAGE_BATOCERA_LIMA_MESA3D=y
+
+# choices can be put in _defconfig files only
+BR2_PACKAGE_REGLINUX_SPLASH_IMAGE=y

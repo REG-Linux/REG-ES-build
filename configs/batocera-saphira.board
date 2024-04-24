@@ -1,0 +1,44 @@
+include batocera-board.common
+
+# Target definition (AArch64 ARMv8.4-A 16K page size)
+BR2_aarch64=y
+BR2_saphira=y
+BR2_ARM64_PAGE_SIZE_16K=y
+BR2_ARM_FPU_NEON_FP_ARMV8=y
+BR2_PACKAGE_BATOCERA_TARGET_SAPHIRA=y
+BR2_TARGET_OPTIMIZATION="-pipe -fsigned-char"
+# following breaks libclc needed by mesa3d: -mcpu=cortex-a78 -mtune=cortex-a78"
+# need to find some -march supported by both GCC and Clang to address the issue
+BR2_GLOBAL_PATCH_DIR="$(BR2_EXTERNAL_BATOCERA_PATH)/board/batocera/patches $(BR2_EXTERNAL_BATOCERA_PATH)/board/batocera/saphira/patches"
+
+# Rust, required by asahi kernel
+BR2_PACKAGE_HOST_RUSTC=y
+BR2_PACKAGE_HOST_RUST_BIN=y
+BR2_PACKAGE_HOST_RUST_BINDGEN=y
+
+# Linux headers same as kernel, a 6.6 series
+BR2_KERNEL_HEADERS_AS_KERNEL=y
+BR2_PACKAGE_HOST_LINUX_HEADERS_CUSTOM_6_6=y
+
+# Kernel
+BR2_LINUX_KERNEL=n
+BR2_LINUX_KERNEL_CUSTOM_TARBALL=y
+BR2_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION="https://github.com/AsahiLinux/linux/archive/refs/tags/asahi-6.6-16.tar.gz"
+
+# GPU (to be cleaned up)
+BR2_PACKAGE_MESA3D_OSMESA_GALLIUM=y
+BR2_PACKAGE_BATOCERA_ASAHI_MESA3D=y
+BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_KMSRO=y
+BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_SWRAST=y
+BR2_PACKAGE_BATOCERA_WAYLAND_SWAY=y
+BR2_PACKAGE_BATOCERA_XWAYLAND=y
+BR2_PACKAGE_MESA3D_OPENGL_GLX=y
+BR2_PACKAGE_MESA3D_DEMOS=y
+BR2_PACKAGE_MESA3D=y
+BR2_PACKAGE_LIBGLVND=y
+BR2_PACKAGE_WLROOTS=y
+BR2_PACKAGE_SWAY=y
+BR2_PACKAGE_LM_SENSORS=y
+
+# choices can be put in _defconfig files only
+BR2_PACKAGE_REGLINUX_SPLASH_FFPLAY=y
