@@ -46,11 +46,6 @@ endmenu
 
 menu "Emulationstation"
   source "$BR2_EXTERNAL_BATOCERA_PATH/package/batocera/emulationstation/batocera-emulationstation/Config.in"
-  source "$BR2_EXTERNAL_BATOCERA_PATH/package/batocera/emulationstation/batocera-es-system/Config.in"
-endmenu
-
-menu "Looks"
-  source "$BR2_EXTERNAL_BATOCERA_PATH/package/batocera/looks/adwaita-icon-theme-light/Config.in"
 endmenu
 
 menu "Utils"

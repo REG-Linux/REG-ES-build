@@ -1,4 +1,4 @@
-w
+
 ##### define variables to use in this file
 if BR2_PACKAGE_BATOCERA_RPI_VCORE || BR2_PACKAGE_BATOCERA_RPI_MESA3D
 	config BR2_PACKAGE_BATOCERA_RPI_ANY
@@ -103,7 +103,6 @@ config BR2_PACKAGE_BATOCERA_SYSTEM
 	select BR2_PACKAGE_BATOCERA_SPLASH			# boot splash
 	select BR2_PACKAGE_BATOCERA_SCRIPTS			# batocera scripts
 	select BR2_PACKAGE_BATOCERA_RESOLUTION			# batocera resolution
-	select BR2_PACKAGE_WGET					# download tools
 	select BR2_PACKAGE_LIBCURL_CURL				# download tools
 	select BR2_PACKAGE_NGHTTP2				# required for curl http2
 	select BR2_PACKAGE_CA_CERTIFICATES			# ssl certificates
