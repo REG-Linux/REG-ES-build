@@ -1,4 +1,4 @@
-
+w
 ##### define variables to use in this file
 if BR2_PACKAGE_BATOCERA_RPI_VCORE || BR2_PACKAGE_BATOCERA_RPI_MESA3D
 	config BR2_PACKAGE_BATOCERA_RPI_ANY
@@ -86,9 +86,7 @@ config BR2_PACKAGE_BATOCERA_SYSTEM
 	select BR2_PACKAGE_BATOCERA_EMULATIONSTATION	# emulationstation
 	select BR2_PACKAGE_XOSD				if BR2_PACKAGE_XSERVER_XORG_SERVER # osd information displaying
 	select BR2_PACKAGE_BATOCERA_BATTERY_CHECKER	if BR2_PACKAGE_XOSD
-	select BR2_PACKAGE_EVSIEVE			# linux tool to manipulate events (like joining them) ; armv8 in 32 bits seems not supported
 	select BR2_PACKAGE_UTIL_LINUX_LIBMOUNT		# for util-linux compilation to work (so, may be removed in the future)
-	select BR2_PACKAGE_FBGRAB			# framebuffer screenshot program, capturing the linux frambuffer and converting it to a png-picture
 	select BR2_PACKAGE_EUDEV_RULES_GEN		# fork of systemd-udev with the goal of obtaining better compatibility with existing software such as OpenRC and Upstart
 	#select BR2_PACKAGE_BOOST
 	#select BR2_PACKAGE_BOOST_ATOMIC			# library that provides atomic data types and operations on these data types
@@ -335,9 +333,6 @@ config BR2_PACKAGE_BATOCERA_WAYLAND_SWAY
 	# Seat management daemon
 	select BR2_PACKAGE_SEATD
 	select BR2_PACKAGE_SEATD_DAEMON
-
-	# Compositor for wayland
-	select BR2_PACKAGE_SWAY
 
 config BR2_PACKAGE_BATOCERA_WAYLAND_GAMESCOPE
        bool "batocera.linux wayland gamescope packages selection"
