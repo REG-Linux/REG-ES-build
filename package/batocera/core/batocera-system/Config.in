@@ -88,8 +88,6 @@ config BR2_PACKAGE_BATOCERA_SYSTEM
 	select BR2_PACKAGE_BATOCERA_BATTERY_CHECKER	if BR2_PACKAGE_XOSD
 	select BR2_PACKAGE_UTIL_LINUX_LIBMOUNT		# for util-linux compilation to work (so, may be removed in the future)
 	select BR2_PACKAGE_EUDEV_RULES_GEN		# fork of systemd-udev with the goal of obtaining better compatibility with existing software such as OpenRC and Upstart
-	#select BR2_PACKAGE_BOOST
-	#select BR2_PACKAGE_BOOST_ATOMIC			# library that provides atomic data types and operations on these data types
 	select BR2_PACKAGE_UTIL_LINUX_LIBSMARTCOLS	# library is used for smart adaptive formatting of tabular data
 	select BR2_PACKAGE_UTIL_LINUX_SETTERM		# Set terminal attributes
 
@@ -100,12 +98,10 @@ config BR2_PACKAGE_BATOCERA_SYSTEM
 	select BR2_PACKAGE_PYTHON3_SSL
 	select BR2_PACKAGE_PYTHON3_PYOPENSSL
 
-	select BR2_PACKAGE_BATOCERA_SPLASH			# boot splash
 	select BR2_PACKAGE_BATOCERA_SCRIPTS			# batocera scripts
 	select BR2_PACKAGE_BATOCERA_RESOLUTION			# batocera resolution
 	select BR2_PACKAGE_LIBCURL_CURL				# download tools
 	select BR2_PACKAGE_NGHTTP2				# required for curl http2
-	select BR2_PACKAGE_CA_CERTIFICATES			# ssl certificates
 	select BR2_PACKAGE_ROCKCHIP_RGA				if BR2_PACKAGE_BATOCERA_TARGET_RK3128 # Used for screen rotation (SDL, Retroarch, Moonlight)
 
 	select BR2_PACKAGE_LIBDRM				if !BR2_PACKAGE_BATOCERA_RPI_VCORE
@@ -140,9 +136,6 @@ config BR2_PACKAGE_BATOCERA_SYSTEM
 	select BR2_PACKAGE_XZ		# for updates
 	select BR2_PACKAGE_ZSTD		# for btrfs compression
 	select BR2_PACKAGE_LZ4		# for initramfs compression
-
-	# script tool
-	select BR2_PACKAGE_DIALOG
 
 	# leds
 	select BR2_PACKAGE_AYN_PLATFORM		if BR2_PACKAGE_BATOCERA_TARGET_X86_ANY
@@ -298,10 +291,8 @@ config BR2_PACKAGE_BATOCERA_SDL2
 	bool "BATOCERA SDL2"
 
 	select BR2_PACKAGE_SDL2
-	select BR2_PACKAGE_SDL2_GFX
 	select BR2_PACKAGE_SDL2_IMAGE
 	select BR2_PACKAGE_SDL2_MIXER
-	select BR2_PACKAGE_SDL2_TTF
 	select BR2_PACKAGE_SDL2_OPENGLES
 	select BR2_PACKAGE_SDL2_OPENGL		if BR2_PACKAGE_HAS_LIBGL
 	select BR2_PACKAGE_SDL2_X11		if BR2_PACKAGE_XORG7
