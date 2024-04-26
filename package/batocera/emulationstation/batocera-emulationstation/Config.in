@@ -1,6 +1,7 @@
 config BR2_PACKAGE_BATOCERA_EMULATIONSTATION
         bool "batocera Emulationstation"
 	depends on BR2_INSTALL_LIBSTDCPP
+	select BR2_PACKAGE_LIBATOMIC_OPS
 	select BR2_PACKAGE_SDL2
 	select BR2_PACKAGE_SDL2_MIXER
 	select BR2_PACKAGE_ALSA_LIB

@@ -1,12 +1,13 @@
+include bootlin-armv7.common
 include batocera-board.common
 
 # Target definition
 BR2_arm=y
 BR2_ARM_EABIHF=y
 BR2_ARM_FPU_NEON_VFPV4=y
-BR2_PACKAGE_BATOCERA_TARGET_H3=y
+BR2_PACKAGE_BATOCERA_TARGET_ARMV7_MESA=y
 BR2_TARGET_OPTIMIZATION="-pipe -fsigned-char"
-BR2_GLOBAL_PATCH_DIR="$(BR2_EXTERNAL_BATOCERA_PATH)/board/batocera/patches $(BR2_EXTERNAL_BATOCERA_PATH)/board/batocera/allwinner/patches $(BR2_EXTERNAL_BATOCERA_PATH)/board/batocera/allwinner/h3/patches"
+BR2_GLOBAL_PATCH_DIR="$(BR2_EXTERNAL_BATOCERA_PATH)/board/batocera/patches"
 
 # Kernel
 BR2_LINUX_KERNEL=n

@@ -1,3 +1,4 @@
+include bootlin-aarch64.common
 include batocera-board.common
 
 # Target definition
@@ -12,9 +13,5 @@ BR2_LINUX_KERNEL=n
 BR2_LINUX_KERNEL_LATEST_VERSION=y
 
 # GPU
-BR2_PACKAGE_BATOCERA_LIMA_MESA3D=y
 BR2_PACKAGE_BATOCERA_PANFROST_MESA3D=y
 BR2_PACKAGE_BATOCERA_WAYLAND_SWAY=y
-
-# Batocera Splash Support
-BR2_PACKAGE_REGLINUX_SPLASH_FFPLAY=y
