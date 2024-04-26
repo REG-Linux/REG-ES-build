@@ -5,7 +5,8 @@
 ################################################################################
 # Last update: Commits on Apr 19, 2024
 BATOCERA_EMULATIONSTATION_VERSION = 6aa0cda3d5d73ed43c0537e98ab9df16877cc3d8
-BATOCERA_EMULATIONSTATION_SITE = https://github.com/REG-linux/REG-emulationstation
+BATOCERA_EMULATIONSTATION_TOKEN = $(shell cat /build/gh_token  | cut -d = -f 2- | cut -d \" -f 2-2)
+BATOCERA_EMULATIONSTATION_SITE = https://$(BATOCERA_EMULATIONSTATION_TOKEN)@github.com/REG-linux/REG-ES.git
 BATOCERA_EMULATIONSTATION_SITE_METHOD = git
 BATOCERA_EMULATIONSTATION_LICENSE = MIT
 BATOCERA_EMULATIONSTATION_GIT_SUBMODULES = YES
